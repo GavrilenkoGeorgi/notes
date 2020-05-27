@@ -5,12 +5,26 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
 	mode: 'production',
 	entry: {
-		app: path.resolve(__dirname, 'src/index.js'),
-		utils: path.resolve(__dirname, 'src/utils/arrays.js')
+		app: path.resolve(__dirname, 'src/index.ts'),
+		utils: path.resolve(__dirname, 'src/utils/arrays.ts')
+	},
+	module: {
+		rules: [
+			{
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
+		]
+	},
+	resolve: {
+		extensions: [ '.tsx', '.ts', '.js' ],
 	},
 	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: 'dist',
+		contentBase: path.join(__dirname, 'dist'),
+		compress: true,
+		port: 9000
 	},
 	plugins: [
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),

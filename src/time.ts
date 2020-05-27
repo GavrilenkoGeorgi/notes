@@ -33,7 +33,7 @@ export default class Time {
 
 	isValid(time?: TimeLayout) {
 
-		const valid = ({ hour, minutes }) => hour <= 12 && minutes <= 59 ? true : false
+		const valid = ({ hour, minutes } : { hour: number, minutes: number} ) => hour <= 12 && minutes <= 59 ? true : false
 
 		if (!time) {
 			console.log('Checking built in time', this.time)
