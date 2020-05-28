@@ -1,4 +1,5 @@
 import TimeLayout from './interface/TimeLayout'
+import TimeError from './errors/TimeError'
 
 export default class Time {
 	private time: TimeLayout = {
@@ -25,22 +26,30 @@ export default class Time {
 			const { hour, minutes } = { ...time }
 			this.time = { hour, minutes }
 			return true
-		} else {
-			console.log('Check time format')
-			return false
 		}
+		return false
 	}
 
 	isValid(time?: TimeLayout) {
 
 		const valid = ({ hour, minutes } : { hour: number, minutes: number} ) => hour <= 12 && minutes <= 59 ? true : false
 
-		if (!time) {
-			console.log('Checking built in time', this.time)
-			return valid(this.time) ? true : false
-		} else {
-			console.log('Checking provided time')
-			return valid(time) ? true : false
+		try {
+			if (!time) {
+				console.log('Checking built in time', this.time)
+				if (!valid(this.time)) { throw new TimeError('Check time format, should be 12H.') }
+				return true
+			} else {
+				console.log('Checking provided time')
+				if (!valid(time)) { throw new TimeError('Check time format, should be 12H.') }
+				return true
+			}
+		} catch (error) {
+			if (error instanceof TimeError) {
+				console.error('Time format error:', error.message)
+			} else {
+				console.error(error)
+			}
 		}
 	}
 }

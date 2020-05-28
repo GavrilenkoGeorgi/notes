@@ -4,7 +4,7 @@ import TimeLayout from './interface/TimeLayout'
 
 // overly complicated clock arms degree calculator
 
-const currentTime: TimeLayout = { hour: 10, minutes: 47 }
+const currentTime: TimeLayout = { hour: 13, minutes: 47 }
 const calc = new DegreeCalculator()
 const time = new Time()
 
