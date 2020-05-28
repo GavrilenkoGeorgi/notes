@@ -26,6 +26,9 @@ module.exports = {
 		compress: true,
 		port: 9000
 	},
+	performance: {
+		hints: process.env.NODE_ENV === 'production' ? "warning" : false
+	},
 	plugins: [
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
 		new HtmlWebpackPlugin({
