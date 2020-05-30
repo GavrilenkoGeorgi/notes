@@ -6,7 +6,7 @@ module.exports = {
 	mode: 'production',
 	entry: {
 		app: path.resolve(__dirname, 'src/index.ts'),
-		utils: path.resolve(__dirname, 'src/utils/arrays.ts')
+		utils: path.resolve(__dirname, 'src/app/utils/arrays.ts')
 	},
 	module: {
 		rules: [
