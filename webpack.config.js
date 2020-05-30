@@ -6,7 +6,7 @@ module.exports = {
 	mode: 'production',
 	entry: {
 		app: path.resolve(__dirname, 'src/index.ts'),
-		utils: path.resolve(__dirname, 'src/utils/arrays.ts')
+		utils: path.resolve(__dirname, 'src/app/utils/arrays.ts')
 	},
 	module: {
 		rules: [
@@ -25,6 +25,9 @@ module.exports = {
 		contentBase: path.join(__dirname, 'dist'),
 		compress: true,
 		port: 9000
+	},
+	performance: {
+		hints: process.env.NODE_ENV === 'production' ? "warning" : false
 	},
 	plugins: [
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),

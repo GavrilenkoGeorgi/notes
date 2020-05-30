@@ -1,6 +1,7 @@
-import TimeLayout from './interface/TimeLayout'
+import TimeLayout from '../interface/TimeLayout'
+import TimeError from '../errors/TimeError'
 
-export default class Time {
+export default class Watch {
 	private time: TimeLayout = {
 		hour: 0,
 		minutes: 0
@@ -10,10 +11,6 @@ export default class Time {
 		time
 			? this.time = { hour: time.hour, minutes: time.minutes }
 			: true
-	}
-
-	showCurrent() {
-		return this.time
 	}
 
 	getCurrentTime() {
@@ -26,21 +23,16 @@ export default class Time {
 			this.time = { hour, minutes }
 			return true
 		} else {
-			console.log('Check time format')
-			return false
+			throw new TimeError('Check time format, should be 12H.')
 		}
 	}
 
 	isValid(time?: TimeLayout) {
-
-		const valid = ({ hour, minutes } : { hour: number, minutes: number} ) => hour <= 12 && minutes <= 59 ? true : false
-
-		if (!time) {
-			console.log('Checking built in time', this.time)
-			return valid(this.time) ? true : false
-		} else {
-			console.log('Checking provided time')
+		const valid = ({ hour, minutes } : { hour: number, minutes: number} ) => hour < 13 && minutes <= 59 ? true : false
+		if (time) {
 			return valid(time) ? true : false
+		} else {
+			return valid(this.time) ? true : false
 		}
 	}
 }
