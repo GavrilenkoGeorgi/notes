@@ -1,9 +1,8 @@
 export default function addArrayEquals () {
 
 	// Warn if overriding existing method
-
 	// @ts-ignore
-	if(Array.prototype.equals)
+	if (Array.prototype.equals)
 		console.warn('Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there\'s a framework conflict or you\'ve got double inclusions in your code.')
 	// attach the .equals method to Array's prototype to call it on any array
 	// @ts-ignore
@@ -16,7 +15,7 @@ export default function addArrayEquals () {
 		if (this.length !== array.length)
 			return false
 
-		for (let i = 0, l=this.length; i < l; i++) {
+		for (let i = 0, l = this.length; i < l; i++) {
 			// Check if we have nested arrays
 			if (this[i] instanceof Array && array[i] instanceof Array) {
 				// recurse into the nested arrays
