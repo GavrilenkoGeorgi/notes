@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import TimeLayout from '../interface/TimeLayout'
 
 export default class DegreeCalculator {

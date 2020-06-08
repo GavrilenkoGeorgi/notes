@@ -3,3 +3,5 @@ node_modules
 *.js
 *.js.map
 !webpack.config.js
+!jest.config.js
+*.bak

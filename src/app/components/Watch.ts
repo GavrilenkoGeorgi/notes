@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import TimeLayout from '../interface/TimeLayout'
 import TimeError from '../errors/TimeError'
 
