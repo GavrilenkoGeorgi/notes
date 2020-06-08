@@ -4,3 +4,4 @@ node_modules
 *.js.map
 !webpack.config.js
 !jest.config.js
+*.bak
