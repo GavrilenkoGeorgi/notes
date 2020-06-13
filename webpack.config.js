@@ -64,7 +64,8 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
 		new HtmlWebpackPlugin({
-			title: 'notes',
+			title: 'Clock arms degree calculator',
+			favicon: 'src/app/assets/images/favicon.ico'
 		}),
 	],
 	output: {
