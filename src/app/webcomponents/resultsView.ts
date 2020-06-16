@@ -1,10 +1,17 @@
-const template = require('./templates/results.html')
+// eslint-disable-next-line
+import TimeLayout from '../interface/TimeLayout'
+const resultsTemplate = require('./templates/results.html')
 
-const templateEl = document.createElement('template')
-templateEl.innerHTML = template
+const resultsTemplateEl = document.createElement('template')
+resultsTemplateEl.innerHTML = resultsTemplate
 
 class ResultsView extends HTMLElement {
 	private degreesEl: HTMLElement | null = null
+	private hoursInputEl: HTMLElement | null = null
+	private minutesInputEl: HTMLElement | null = null
+
+	private hour: number = 0
+	private minutes: number = 0
 
 	static get observedAttributes() {
 		return ['degrees']
@@ -13,9 +20,18 @@ class ResultsView extends HTMLElement {
 	constructor() {
 		super()
 		const shadow = this.attachShadow({ mode: 'closed' })
-		shadow.appendChild(templateEl.content.cloneNode(true))
+		shadow.appendChild(resultsTemplateEl.content.cloneNode(true))
 
 		this.degreesEl = shadow.getElementById('results__degrees')
+
+		this.hoursInputEl = shadow.getElementById('hours')
+		this.minutesInputEl = shadow.getElementById('minutes')
+
+		if (this.hoursInputEl === null || this.minutesInputEl === null) {
+			return
+		}
+		this.hoursInputEl.addEventListener('change', this.handleChange)
+		this.minutesInputEl.addEventListener('change', this.handleChange)
 	}
 
 	public attributeChangedCallback(name: string, oldValue: string, newValue: string) {
@@ -28,5 +44,22 @@ class ResultsView extends HTMLElement {
 			break
 		}
 	}
+
+	public disconnectedCallback() {
+		if (this.hoursInputEl === null || this.minutesInputEl === null) {
+			return
+		}
+		this.hoursInputEl.removeEventListener('change', this.handleChange)
+		this.minutesInputEl.removeEventListener('change', this.handleChange)
+	}
+
+	private handleChange = (event: any) => {
+		event.target.name === 'hours'
+			? this.hour = Number(event.target.value)
+			: this.minutes = Number(event.target.value)
+		const time: TimeLayout = { hour: this.hour, minutes: this.minutes }
+		this.dispatchEvent(new CustomEvent('changeHours', { 'detail': time }))
+	}
 }
+
 window.customElements.define('results-view', ResultsView)

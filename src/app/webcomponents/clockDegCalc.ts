@@ -1,4 +1,9 @@
 import './resultsView'
+import DegreeCalculator from '../components/DegreeCalculator'
+import Watch from '../components/Watch'
+
+const calc = new DegreeCalculator()
+const watch = new Watch()
 
 class ClockDegCalc extends HTMLElement {
 	private resultsViewEl: HTMLElement | null = null
@@ -9,15 +14,18 @@ class ClockDegCalc extends HTMLElement {
 		const shadow = this.attachShadow({ mode: 'closed' })
 		this.resultsViewEl = document.createElement('results-view')
 		this.resultsViewEl.setAttribute('degrees', this.degrees.toString())
+		this.resultsViewEl.addEventListener('changeHours', this.calculateDegrees)
 		shadow.appendChild(this.resultsViewEl)
 	}
 
-	public setDegrees = (value: number) => {
+	private calculateDegrees = (event: any) => {
 		if (this.resultsViewEl === null) {
 			return
 		}
-		this.degrees = value
-		this.resultsViewEl.setAttribute('degrees', this.degrees.toString())
+		const time = event.detail
+		watch.setTime(time)
+		const degrees = calc.clockArmsAngle(watch.getCurrentTime())
+		this.resultsViewEl.setAttribute('degrees', degrees.toString())
 	}
 }
 window.customElements.define('clock-deg-calc', ClockDegCalc)
