@@ -3,8 +3,8 @@
 
 # Clock arms degree calculator
 
-Overly complicated clock arms degree calculator on TS and other stuff, just for fun.
+Overly complicated clock hands degree calculator on TS and other stuff, just for fun.
 
-TypeScript, Webpack, ESLint, Jest, SASS
+TypeScript, Web Components, Webpack, ESLint, Jest, SASS.
 
-Deploy: [https://deg-calc.netlify.app](https://gavrilenko.netlify.app)
+Deploy: [https://deg-calc.netlify.app](https://deg-calc.netlify.app)
