@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
 	mode: 'production',
@@ -68,6 +69,11 @@ module.exports = {
 			favicon: 'src/app/assets/images/favicon.ico',
 			template: 'src/static/index.html'
 		}),
+		new CopyPlugin({
+			patterns: [
+				{ from: 'src/app/css', to: 'css' }
+			]
+		})
 	],
 	output: {
 		filename: '[name]-bundle.js',

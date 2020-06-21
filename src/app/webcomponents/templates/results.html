@@ -1,10 +1,18 @@
 <style>
-	#results121 {
-		text-align: center;
-		font-weight: 500;
-	}
+	@import 'css/webcomponents/index.css';
 </style>
-<div id="results">
-	Hours: <input id="hours" type="number" name="hours" min="1" max="12">
-	Minutes: <input id="minutes" type="number" name="minutes" min="1" max="59"> = <span id="results__degrees"></span>&deg;
-</div>
+
+<article id="results" class="results-container">
+	<div id="hint" class="hint">
+		Enter time in 12H format, as it is max 12 hours on the analogue clock face.
+	</div>
+	<div class="input-column">
+		Hours: <input id="hours" type="number" name="hours" min="1" max="12">
+	</div>
+	<div class="input-column">
+		Minutes: <input id="minutes" type="number" name="minutes" min="1" max="59">
+	</div>
+	<div class="output-column">
+		Angle is: <span id="results__degrees"></span>&deg;
+	</div>
+</article>

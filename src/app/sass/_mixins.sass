@@ -9,3 +9,13 @@
 	@else
 		background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color)
 		background: radial-gradient(ellipse at center, $start-color, $end-color)
+
+=keyframes($name)
+	@-webkit-keyframes #{$name}
+		@content
+	@-moz-keyframes #{$name}
+		@content
+	@-ms-keyframes #{$name}
+		@content
+	@keyframes #{$name}
+		@content

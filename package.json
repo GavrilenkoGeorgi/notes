@@ -7,9 +7,8 @@
 		"start": "npm run build:prod && http-server ./dist",
 		"start:dev": "webpack-dev-server --open",
 		"build:prod": "webpack",
-		"start:node": "node ./src/index.js",
-		"watch:node": "nodemon src/index.js",
 		"tsc:watch": "tsc --watch",
+		"sass:watch-web-comp": "sass --watch src/app/sass/webcomponents/:src/app/css/webcomponents --style compressed",
 		"test": "jest",
 		"test:watch": "jest --watch"
 	},
@@ -32,6 +31,7 @@
 		"@typescript-eslint/eslint-plugin": "^3.2.0",
 		"@typescript-eslint/parser": "^3.2.0",
 		"clean-webpack-plugin": "^3.0.0",
+		"copy-webpack-plugin": "^6.0.2",
 		"css-loader": "^3.5.3",
 		"eslint": "^7.2.0",
 		"file-loader": "^6.0.0",
