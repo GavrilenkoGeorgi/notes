@@ -9,6 +9,7 @@ class ResultsView extends HTMLElement {
 	private degreesEl: HTMLElement | null = null
 	private hoursInputEl: HTMLElement | null = null
 	private minutesInputEl: HTMLElement | null = null
+	private hintEl: HTMLElement | null = null
 
 	private hour: number = 0
 	private minutes: number = 0
@@ -26,12 +27,13 @@ class ResultsView extends HTMLElement {
 
 		this.hoursInputEl = shadow.getElementById('hours')
 		this.minutesInputEl = shadow.getElementById('minutes')
+		this.hintEl = shadow.getElementById('hint')
 
 		if (this.hoursInputEl === null || this.minutesInputEl === null) {
 			return
 		}
-		this.hoursInputEl.addEventListener('change', this.handleChange)
-		this.minutesInputEl.addEventListener('change', this.handleChange)
+		this.hoursInputEl.addEventListener('input', this.handleChange)
+		this.minutesInputEl.addEventListener('input', this.handleChange)
 	}
 
 	public attributeChangedCallback(name: string, oldValue: string, newValue: string) {
@@ -59,6 +61,7 @@ class ResultsView extends HTMLElement {
 			: this.minutes = Number(event.target.value)
 		const time: TimeLayout = { hour: this.hour, minutes: this.minutes }
 		this.dispatchEvent(new CustomEvent('changeHours', { 'detail': time }))
+		this.hintEl.classList.add('animate-fadein')
 	}
 }
 
