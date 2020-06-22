@@ -1,7 +1,7 @@
 {
-	"name": "notes",
-	"version": "0.1.1",
-	"description": "Clock arms degree calculator",
+	"name": "degree-calc",
+	"version": "0.2.1",
+	"description": "Clock hands degree calculator",
 	"private": true,
 	"scripts": {
 		"start": "npm run build:prod && http-server ./dist",

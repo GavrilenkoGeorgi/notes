@@ -65,13 +65,13 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
 		new HtmlWebpackPlugin({
-			title: 'Clock arms degree calculator',
 			favicon: 'src/app/assets/images/favicon.ico',
 			template: 'src/static/index.html'
 		}),
 		new CopyPlugin({
 			patterns: [
-				{ from: 'src/app/css', to: 'css' }
+				{ from: 'src/app/css', to: 'css' },
+				{ from: 'src/app/assets/images', to: 'images' }
 			]
 		})
 	],
