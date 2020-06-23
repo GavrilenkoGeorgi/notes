@@ -6,6 +6,15 @@ import TimeLayout from '../interface/TimeLayout'
  * From: cssanimation.rocks/clocks
  */
 
+// eslint-disable-next-line
+class ClockHand extends HTMLElement {
+	constructor ()
+	{
+		super()
+	}
+	angle: number
+}
+
 export default function initClockFace(time:TimeLayout) {
 	const { hour, minutes, seconds } = time
 
@@ -13,15 +22,15 @@ export default function initClockFace(time:TimeLayout) {
 	const hands = [
 		{
 			hand: 'hours',
-			angle:<any> (hour * 30) + (minutes / 2)
+			angle:<number> (hour * 30) + (minutes / 2)
 		},
 		{
 			hand: 'minutes',
-			angle:<any> (minutes * 6)
+			angle:<number> (minutes * 6)
 		},
 		{
 			hand: 'seconds',
-			angle:<any> (seconds * 6)
+			angle:<number> (seconds * 6)
 		}
 	]
 	// Loop through each of these hands to set their angle
@@ -43,7 +52,7 @@ export default function initClockFace(time:TimeLayout) {
  */
 function setUpMinuteHands() {
 	// Find out how far into the minute we are
-	const containers:NodeListOf<HTMLElement> = document.querySelectorAll('.minutes-container')
+	const containers:NodeListOf<ClockHand> = document.querySelectorAll('.minutes-container')
 	const secondAngle:number = Number(containers[0].getAttribute('data-second-angle'))
 	if (secondAngle > 0) {
 		// Set a timeout until the end of the current minute, to move the hand
@@ -57,7 +66,7 @@ function setUpMinuteHands() {
 /*
  * Do the first minute's rotation
  */
-function moveMinuteHands(containers:NodeListOf<any>) { // this!
+function moveMinuteHands(containers:NodeListOf<ClockHand>) {
 	for (let i = 0; i < containers.length; i++) {
 		containers[i].style.webkitTransform = 'rotateZ(6deg)'
 		containers[i].style.transform = 'rotateZ(6deg)'
