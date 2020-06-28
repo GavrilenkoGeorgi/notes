@@ -1,21 +1,41 @@
 @import '../colors'
-@import '../mixins'
+@import '../mixins.sass'
 
-article
+.results-container
 	display: flex
 	flex-wrap: wrap
-	flex-direction: row
+	flex-direction: column
 	justify-content: center
+	align-items: center
+	margin: auto
+	text-align: center
+	+handheld(2, 500px)
+		flex-direction: row
+	+desktop(96dpi, 400px)
+		flex-direction: row
+		width: 85%
+	+desktop(96dpi, 1024px)
+		width: 50%
+
 
 .hint
 	color: $color-light-font
-	padding: 1rem
+	padding: .5rem
 	opacity: 0
 	flex-basis: 100%
 	text-align: center
 
 .input-column, .output-column
-	padding: .5rem 1rem
+	text-align: right
+	width: 10rem
+	padding: .5rem .2rem
+	flex-grow: 1
+	flex-basis: 0
+	font-size: 100%
+
+.output-column
+	text-align: center
+	font-weight: 600
 
 .animate-fadein
 	animation: fadein 2s forwards
@@ -25,3 +45,9 @@ article
 		opacity: 0
 	100% 
 		opacity: 1
+
+input[type=number]
+	border: .05rem solid $primary-light
+	margin: .25rem 0rem
+	padding: .25rem
+	border-radius: .3rem
