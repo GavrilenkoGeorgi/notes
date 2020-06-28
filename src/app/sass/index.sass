@@ -1,20 +1,21 @@
-@import 'colors.sass'
-@import 'mixins.sass'
-@import 'fonts.sass'
+@import 'colors'
+@import 'mixins'
+@import 'fonts'
 
-@import 'clockFace.sass'
+@import 'loader'
+@import 'clockFace'
 @include font-face("Quicksand Regular", "../assets/fonts/Quicksand-Regular", $style: normal, $weight: normal)
 
 *
 	font-family: 'Quicksand Regular', sans-serif
 
 body
+	height: 100vh
 	padding: 0
 	margin: 0
 	color: $default-font-color
 
 .main
-	height: 100vh
 	display: flex
 	flex-direction: column
 	justify-content: center

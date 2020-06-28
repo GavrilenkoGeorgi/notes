@@ -10,19 +10,38 @@
 	</head>
 
 	<body class="main gradient">
-		<article class="clock">
-			<div class="hours-container">
-				<div class="hours"></div>
-			</div>
-			<div class="minutes-container">
-				<div class="minutes"></div>
-			</div>
-			<div class="seconds-container">
-				<div class="seconds"></div>
-			</div>
-		</article>
-		<section class="description">
-			Overly complicated clock hands degree calculator made with Web Components, TypeScript, Webpack and Jest.
+		<section class="loader-container">
+			<div id="loader" class="loader">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+		</div>
+		</section>
+		<!-- hidden even if css is not loaded yet -->
+		<section id="contents" style="visibility: hidden;">
+			<article class="clock">
+				<div class="hours-container">
+					<div class="hours"></div>
+				</div>
+				<div class="minutes-container">
+					<div class="minutes"></div>
+				</div>
+				<div class="seconds-container">
+					<div class="seconds"></div>
+				</div>
+			</article>
+			<article class="description">
+				Overly complicated clock hands degree calculator made with Web Components, TypeScript, Webpack and Jest.
+			</article>
 		</section>
 	</body>
 </html>
