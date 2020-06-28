@@ -1,6 +1,6 @@
 {
 	"name": "degree-calc",
-	"version": "0.2.2",
+	"version": "0.3.0",
 	"description": "Clock hands degree calculator",
 	"private": true,
 	"scripts": {
@@ -14,7 +14,10 @@
 	},
 	"keywords": [
 		"js",
-		"es6"
+		"es6",
+		"typescript",
+		"sass",
+		"webcomponents"
 	],
 	"author": "Georgi Gavrilenko <georgi.gavrilenko.gmail.com>",
 	"license": "MIT",
