@@ -1,21 +1,23 @@
 {
-	"name": "notes",
-	"version": "0.1.1",
-	"description": "Clock arms degree calculator",
+	"name": "degree-calc",
+	"version": "0.3.0",
+	"description": "Clock hands degree calculator",
 	"private": true,
 	"scripts": {
 		"start": "npm run build:prod && http-server ./dist",
 		"start:dev": "webpack-dev-server --open",
 		"build:prod": "webpack",
-		"start:node": "node ./src/index.js",
-		"watch:node": "nodemon src/index.js",
 		"tsc:watch": "tsc --watch",
+		"sass:watch-web-comp": "sass --watch src/app/sass/webcomponents/:src/app/css/webcomponents --style compressed",
 		"test": "jest",
 		"test:watch": "jest --watch"
 	},
 	"keywords": [
 		"js",
-		"es6"
+		"es6",
+		"typescript",
+		"sass",
+		"webcomponents"
 	],
 	"author": "Georgi Gavrilenko <georgi.gavrilenko.gmail.com>",
 	"license": "MIT",
@@ -32,6 +34,7 @@
 		"@typescript-eslint/eslint-plugin": "^3.2.0",
 		"@typescript-eslint/parser": "^3.2.0",
 		"clean-webpack-plugin": "^3.0.0",
+		"copy-webpack-plugin": "^6.0.2",
 		"css-loader": "^3.5.3",
 		"eslint": "^7.2.0",
 		"file-loader": "^6.0.0",

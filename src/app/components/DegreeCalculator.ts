@@ -15,7 +15,7 @@ export default class DegreeCalculator {
 		// hours hand degrees
 		const hoursAngle = minutesAfterTwelwe * (360/60) / 12
 
-		const result = hoursAngle - minutesAngle
+		const result = Math.abs(hoursAngle - minutesAngle)
 
 		if (result || result === 0) {
 			return result

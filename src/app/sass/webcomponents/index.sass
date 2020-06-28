@@ -1,0 +1,27 @@
+@import '../colors'
+@import '../mixins'
+
+article
+	display: flex
+	flex-wrap: wrap
+	flex-direction: row
+	justify-content: center
+
+.hint
+	color: $color-light-font
+	padding: 1rem
+	opacity: 0
+	flex-basis: 100%
+	text-align: center
+
+.input-column, .output-column
+	padding: .5rem 1rem
+
+.animate-fadein
+	animation: fadein 2s forwards
+
++keyframes(fadein)
+	0%
+		opacity: 0
+	100% 
+		opacity: 1

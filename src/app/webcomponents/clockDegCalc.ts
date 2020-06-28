@@ -1,6 +1,7 @@
 import './resultsView'
 import DegreeCalculator from '../components/DegreeCalculator'
 import Watch from '../components/Watch'
+import initClockFace from '../components/ClockFace'
 
 const calc = new DegreeCalculator()
 const watch = new Watch()
@@ -22,8 +23,9 @@ class ClockDegCalc extends HTMLElement {
 		if (this.resultsViewEl === null) {
 			return
 		}
-		const time = event.detail
-		watch.setTime(time)
+		const time = event.detail // get time from input
+		watch.setTime(time) // set up watch
+		initClockFace(watch.getCurrentTime()) // move clock arms
 		const degrees = calc.clockArmsAngle(watch.getCurrentTime())
 		this.resultsViewEl.setAttribute('degrees', degrees.toString())
 	}
