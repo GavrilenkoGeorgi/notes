@@ -1,12 +1,12 @@
 {
 	"name": "degree-calc",
-	"version": "0.3.2",
+	"version": "0.4.0",
 	"description": "Clock hands degree calculator",
 	"private": true,
 	"scripts": {
-		"start": "npm run build:prod && http-server ./dist",
+		"start": "npm run build && http-server ./dist",
 		"start:dev": "webpack-dev-server --open",
-		"build:prod": "webpack",
+		"build": "webpack",
 		"tsc:watch": "tsc --watch",
 		"sass:watch-web-comp": "sass --watch src/app/sass/webcomponents/:src/app/css/webcomponents --style compressed",
 		"test": "jest",
@@ -49,6 +49,7 @@
 		"typescript": "^3.9.3",
 		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.11",
-		"webpack-dev-server": "^3.11.0"
+		"webpack-dev-server": "^3.11.0",
+		"workbox-webpack-plugin": "^5.1.3"
 	}
 }

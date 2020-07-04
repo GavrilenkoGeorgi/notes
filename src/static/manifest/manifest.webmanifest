@@ -1,0 +1,22 @@
+{
+  "short_name": "Degree Calc",
+  "name": "Clock hands degree calculator.",
+  "description": "Overly complicated clock hands degree calculator.",
+  "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#e7eaf0",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#e7eaf0"
+}

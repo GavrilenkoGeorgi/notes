@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
 	mode: 'production',
@@ -71,8 +72,14 @@ module.exports = {
 		new CopyPlugin({
 			patterns: [
 				{ from: 'src/app/css', to: 'css' },
-				{ from: 'src/app/assets/images', to: 'images' }
+				{ from: 'src/app/assets/images', to: 'images' },
+				{ from: 'src/app/assets/icons', to: 'icons' },
+				{ from: 'src/static/manifest', to: '' }
 			]
+		}),
+		new WorkboxPlugin.GenerateSW({
+			clientsClaim: true,
+			skipWaiting: true,
 		})
 	],
 	output: {
