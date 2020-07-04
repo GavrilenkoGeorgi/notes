@@ -5,7 +5,7 @@ document.onreadystatechange = () => {
 	if (state === 'interactive') {
 		app()
 	} else if (state === 'complete') {
-		document.getElementById('loader').style.visibility = 'hidden'
+		document.getElementById('loader').style.display = 'none'
 		document.getElementById('contents').style.visibility = 'visible'
 	}
 }
