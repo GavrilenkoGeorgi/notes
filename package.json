@@ -4,9 +4,9 @@
 	"description": "Clock hands degree calculator",
 	"private": true,
 	"scripts": {
-		"start": "npm run build:prod && http-server ./dist",
+		"start": "npm run build && http-server ./dist",
 		"start:dev": "webpack-dev-server --open",
-		"build:prod": "webpack",
+		"build": "webpack",
 		"tsc:watch": "tsc --watch",
 		"sass:watch-web-comp": "sass --watch src/app/sass/webcomponents/:src/app/css/webcomponents --style compressed",
 		"test": "jest",
